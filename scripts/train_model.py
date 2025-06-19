@@ -49,9 +49,12 @@ if not faces:
     exit(1)
 
 try:
+    # создание модели распознавания лиц с использованием алгоритма LBPH
     model = cv2.face.LBPHFaceRecognizer_create()
+    # обучение модели на массиве лиц и соответствующих метках
     model.train(faces, np.array(labels))
 except Exception as e:
+     # в случае ошибки вывод сообщения об ошибке
     messagebox.showerror("Ошибка обучения", str(e))
     exit(1)
 
